@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Stall Inventory System</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .tabs { display: flex; margin-bottom: 20px; }
+        .tab { padding: 10px 20px; cursor: pointer; border: 1px solid #ccc; border-bottom: none; }
+        .tab.active { background-color: #eee; font-weight: bold; }
+        .tab-content { border: 1px solid #ccc; padding: 20px; display: none; }
+        .tab-content.active { display: block; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        table, th, td { border: 1px solid #ccc; }
+        th, td { padding: 8px; text-align: left; }
+        input, button { margin: 5px 0; }
+        .low-stock { background-color: #ffcccc; }
+    </style>
+</head>
+<body>
+    <h1>Food Stall Inventory System</h1>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" data-tab="inventory">Inventory</div>
+        <div class="tab" data-tab="sales">Sales</div>
+        <div class="tab" data-tab="profit">Total Profit</div>
+    </div>
+
+    <!-- Inventory Tab -->
+    <div id="inventory" class="tab-content active">
+
+        <h2>Add / Update / Delete Item</h2>
+
+        <!-- ADD ITEM -->
+        <form id="addItemForm">
+            <h3>Add Item</h3>
+            Branch: <input type="text" name="branch" required><br>
+            Item Name: <input type="text" name="name" required><br>
+            Stock: <input type="number" name="stock" required><br>
+            Price: <input type="number" name="price" required><br>
+            Category: <input type="text" name="category" required><br>
+            <button type="submit">Add Item</button>
+        </form>
+
+        <!-- UPDATE ITEM -->
+        <form id="updateItemForm">
+            <h3>Update Item</h3>
+            Branch: <input type="text" name="branch" required><br>
+            Item Name: <input type="text" name="name" required><br>
+            New Stock: <input type="number" name="stock"><br>
+            New Price: <input type="number" name="price"><br>
+            New Category: <input type="text" name="category"><br>
+            <button type="submit">Update Item</button>
+        </form>
+
+        <!-- DELETE ITEM -->
+        <form id="deleteItemForm">
+            <h3>Delete Item</h3>
+            Branch: <input type="text" name="branch" required><br>
+            Item Name: <input type="text" name="name" required><br>
+            <button type="submit">Delete Item</button>
+        </form>
+
+        <!-- Multi-Branch Inventory -->
+        <h3>View Inventory (All Branches)</h3>
+        <button id="viewAllInventory">View All Inventory</button>
+        <div id="branchInventories"></div>
+
+        <!-- Simulation Mode -->
+        <h3>Simulation Mode</h3>
+        <button id="simulateSales">Simulate Random Sales</button>
+        <p id="simulationStatus"></p>
+
+        <!-- Record Sale -->
+        <h3>Record Sale</h3>
+        <form id="saleForm">
+            Branch: <input type="text" name="branch" required><br>
+            Item Name: <input type="text" name="name" required><br>
+            Quantity Sold: <input type="number" name="quantity" required><br>
+            <button type="submit">Record Sale</button>
+        </form>
+    </div>
+
+    <!-- Sales Tab -->
+    <div id="sales" class="tab-content">
+        <h2>View Sales Report</h2>
+        Branch: <input type="text" id="salesBranch" value="main">
+        <button id="viewSales">View Sales</button>
+        <table id="salesTable">
+            <thead>
+                <tr><th>Item</th><th>Quantity</th><th>Total</th><th>Date</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- Total Profit Tab -->
+    <div id="profit" class="tab-content">
+        <h2>Total Profit Across All Branches</h2>
+        <button id="viewTotalProfit">View Total Profit</button>
+        <p id="totalProfitDisplay">₱0.00</p>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // TAB FUNCTIONALITY
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                tabContents.forEach(c => c.classList.remove('active'));
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

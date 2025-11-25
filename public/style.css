@@ -1,0 +1,265 @@
+/* ==============================
+   GENERAL STYLES
+============================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em; /* optional: adjust size */
+    color: #2c3e50; /* optional: dark color */
+    margin-bottom: 30px; /* space below the title */
+}
+
+
+/* ==============================
+   LOGIN STYLES
+============================== */
+#loginContainer {
+    background-color: #ffffff;
+    padding: 30px;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    margin: 0 auto 20px auto;
+    transition: transform 0.2s;
+}
+
+#loginContainer:hover {
+    transform: translateY(-2px);
+}
+
+#loginContainer h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #34495e;
+}
+
+#loginStatus {
+    color: #e74c3c;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+#mainContent {
+    display: none; /* hidden until login */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==============================
+   TABS STYLING
+============================== */
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #e0e0e0;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 12px 25px;
+    cursor: pointer;
+    background: #ecf0f1;
+    border-radius: 8px 8px 0 0;
+    margin-right: 5px;
+    transition: background 0.3s;
+}
+
+.tab:hover {
+    background: #dfe6e9;
+}
+
+.tab.active {
+    background: #ffffff;
+    font-weight: 600;
+    border-bottom: 3px solid #4CAF50;
+}
+
+/* ==============================
+   TAB CONTENT STYLING
+============================== */
+.tab-content {
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 0 12px 12px 12px;
+    display: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: opacity 0.3s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ==============================
+   FORMS STYLING
+============================== */
+form {
+    margin-bottom: 25px;
+    background: #f7f9fb;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+form:hover {
+    transform: translateY(-2px);
+}
+
+form h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+    outline: none;
+}
+
+form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 18px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-weight: 600;
+}
+
+form button:hover {
+    background: #43a047;
+    transform: translateY(-2px);
+}
+
+/* ==============================
+   POS STYLE BUTTON ICONS
+============================== */
+button .icon {
+    font-size: 16px;
+}
+
+/* ==============================
+   TABLE STYLING
+============================== */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+td {
+    padding: 10px 12px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* ==============================
+   LOW STOCK & CATEGORY COLORS
+============================== */
+.low-stock {
+    background: linear-gradient(90deg, #ffcccc, #ff9999);
+    font-weight: bold;
+}
+
+.category-fresh {
+    background: linear-gradient(90deg, #c8e6c9, #81c784);
+}
+
+.category-low {
+    background: linear-gradient(90deg, #fff9c4, #fff176);
+}
+
+.category-critical {
+    background: linear-gradient(90deg, #ffab91, #ff7043);
+}
+
+/* ==============================
+   SALES & PROFIT
+============================== */
+#totalProfitDisplay {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #27ae60;
+    margin-top: 10px;
+}
+
+#salesTable {
+    margin-top: 15px;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+@media (max-width: 768px) {
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    button {
+        max-width: 100%;
+    }
+}
+

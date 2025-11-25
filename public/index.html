@@ -3,21 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Food Stall Inventory System</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        .tabs { display: flex; margin-bottom: 20px; }
-        .tab { padding: 10px 20px; cursor: pointer; border: 1px solid #ccc; border-bottom: none; }
-        .tab.active { background-color: #eee; font-weight: bold; }
-        .tab-content { border: 1px solid #ccc; padding: 20px; display: none; }
-        .tab-content.active { display: block; }
-        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
-        table, th, td { border: 1px solid #ccc; }
-        th, td { padding: 8px; text-align: left; }
-        input, button { margin: 5px 0; }
-        .low-stock { background-color: #ffcccc; }
-        #mainContent { display: none; } /* hide content until login */
-        #loginContainer { margin-bottom: 20px; }
-    </style>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <h1>Food Stall Inventory System</h1>
@@ -49,7 +36,7 @@
             <h2>Add / Update / Delete Item</h2>
 
             <!-- ADD ITEM -->
-            <form id="addItemForm">
+            <form id="addItemForm">	
                 <h3>Add Item</h3>
                 Branch: <input type="text" name="branch" required><br>
                 Item Name: <input type="text" name="name" required><br>
